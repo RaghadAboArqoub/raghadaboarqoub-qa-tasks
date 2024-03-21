@@ -23,3 +23,9 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add('loginToWebsite',(email,password)=>{
+    cy.visit("https://admin-demo.nopcommerce.com/login?ReturnUrl=%2Fadmin%2F");
+    cy.get("#Email").clear().type(email)
+    cy.get("#Password").clear().type(password)
+    cy.get(".button-1").click();
+})
